@@ -1,4 +1,4 @@
-import { Config } from "./models/types/config.type";
+import { Config } from "./types/config.type";
 
 export const defaultConfig: Config = {
     mode: 'light'

@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { customModuleContainers } from './containers';
 import { CustomModuleRoutingModule } from './custom-module-routing.module';
-import { Config, MODULE_CONFIG } from './models/types/config.type';
+import { Config, MODULE_CONFIG } from './types/config.type';
 import { defaultConfig } from './default-config.constant';
 
 

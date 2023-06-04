@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Config, DarkLightMode, MODULE_CONFIG } from '../../models/types/config.type';
+import { Config, DarkLightMode, MODULE_CONFIG } from '../../types/config.type';
 
 @Component({
     selector: 'app-main',
