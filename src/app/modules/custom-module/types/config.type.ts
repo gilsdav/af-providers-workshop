@@ -1,7 +1,7 @@
 import { InjectionToken } from "@angular/core";
 
 export type Config = {
-  mode?: DarkLightMode;
+	mode?: DarkLightMode;
 }
 
 export const MODULE_CONFIG = new InjectionToken<Config>('MODULE_CONFIG');

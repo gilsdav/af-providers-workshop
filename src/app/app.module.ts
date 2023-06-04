@@ -7,18 +7,18 @@ import { CustomModuleModule } from './modules/custom-module/custom-module.module
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CustomModuleModule.forRoot({
-      // mode: 'dark'
-    }),
-    NgbModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		CustomModuleModule.forRoot({
+			// mode: 'dark'
+		}),
+		NgbModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { MainComponent } from "./main/main.component";
 
 export const customModuleContainers = [
-  MainComponent
+	MainComponent
 ];
 
 export * from "./main/main.component";

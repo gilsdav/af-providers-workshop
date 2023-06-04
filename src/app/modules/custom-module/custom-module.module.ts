@@ -8,26 +8,26 @@ import { defaultConfig } from './default-config.constant';
 
 
 @NgModule({
-    declarations: [
-        ...customModuleContainers
-    ],
-    imports: [
-        CommonModule,
-        CustomModuleRoutingModule
-    ]
+	declarations: [
+		...customModuleContainers
+	],
+	imports: [
+		CommonModule,
+		CustomModuleRoutingModule
+	]
 })
 export class CustomModuleModule {
-    public static forRoot(config?: Config): ModuleWithProviders<CustomModuleModule> {
+	public static forRoot(config?: Config): ModuleWithProviders<CustomModuleModule> {
 
-        const computedConfig: Config = config ? { ...defaultConfig, ...config } : defaultConfig;
+		const computedConfig: Config = config ? { ...defaultConfig, ...config } : defaultConfig;
 
-        const module: ModuleWithProviders<CustomModuleModule> = {
-            ngModule: CustomModuleModule,
-            providers: [
-                { provide: MODULE_CONFIG, useValue: computedConfig }
-            ]
-        }
+		const module: ModuleWithProviders<CustomModuleModule> = {
+			ngModule: CustomModuleModule,
+			providers: [
+				{ provide: MODULE_CONFIG, useValue: computedConfig }
+			]
+		}
 
-        return module;
-    }
+		return module;
+	}
 }
