@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomModuleModule } from './modules/custom-module/custom-module.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { USER_SERVICE } from './modules/custom-module/types/config.type';
+import { AlternativeUserService } from './services/alternative-user.service';
 
 @NgModule({
 	declarations: [
@@ -14,10 +16,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 		BrowserModule,
 		AppRoutingModule,
 		CustomModuleModule.forRoot({
-			// mode: 'dark'
+			// mode: 'dark',
+			// enableGuard: true,
+			// altGuard: AlternativeGuard,
+			// userService: { provide: USER_SERVICE, useClass: AlternativeUserService }
 		}),
 		NgbModule
 	],
+	exports: [],
 	providers: [],
 	bootstrap: [AppComponent]
 })

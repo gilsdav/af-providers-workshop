@@ -2,7 +2,10 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, Inject, OnInit } from '@angular/core';
-import { Config, DarkLightMode, MODULE_CONFIG } from '../../types/config.type';
+import { Config, DarkLightMode, MODULE_CONFIG, USER_SERVICE } from '../../types/config.type';
+import { Observable } from 'rxjs';
+import { UserModel } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'app-main',
@@ -12,11 +15,16 @@ import { Config, DarkLightMode, MODULE_CONFIG } from '../../types/config.type';
 export class MainComponent implements OnInit {
 
 	public mode!: DarkLightMode;
+	public user$!: Observable<UserModel>;
 
-	constructor(@Inject(MODULE_CONFIG) private config: Config) {
+	constructor(
+		@Inject(MODULE_CONFIG) private config: Config,
+		@Inject(USER_SERVICE) private userService: UserService) {
 		this.mode = this.config.mode!;
 	}
 
-	ngOnInit(): void { }
+	ngOnInit(): void {
+		this.user$ = this.userService.getUser();
+	}
 
 }
