@@ -24,7 +24,6 @@ export class CustomModuleModule {
 	public static forRoot(config?: Config): ModuleWithProviders<CustomModuleModule> {
 
 		const computedConfig: Config = config ? { ...defaultConfig, ...config } : defaultConfig;
-		console.log(computedConfig);
 
 
 		const module: ModuleWithProviders<CustomModuleModule> = {
