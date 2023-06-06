@@ -9,7 +9,7 @@ import { LoggerService } from './logger.service';
 	declarations: [],
 	imports: [ CommonModule ],
 	exports: [],
-	providers: [],
+	providers: [ LoggerService ],
 })
 export class LoggerModule {
 
@@ -18,7 +18,6 @@ export class LoggerModule {
 		return {
 			ngModule: LoggerModule,
 			providers: [
-				LoggerService,
 				...loggerConfig.loggers.map(log => ({
 					provide: LOGGERS,
 					multi: true,
