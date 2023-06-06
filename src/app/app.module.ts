@@ -8,10 +8,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlternativeUserService } from './services/alternative-user.service';
 import { LoggerModule } from './modules/logger-module/logger.module';
 import { environment } from '../environments/environment';
+import { DynamicComponentModule } from './modules/dynamic-component-module/dynamic-component.module';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		TestComponent
 	],
 	imports: [
 		BrowserModule,
@@ -25,6 +28,11 @@ import { environment } from '../environments/environment';
 		NgbModule,
 		LoggerModule.forRoot({
 			// loggers: environment.loggers
+		}),
+		DynamicComponentModule.forRoot({
+			components: {
+				'test': TestComponent
+			}
 		})
 	],
 	exports: [],
