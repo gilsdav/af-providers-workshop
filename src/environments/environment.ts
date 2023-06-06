@@ -1,9 +1,15 @@
+import { ConsoleBisLogger } from '../app/modules/logger-module/loggers/console-bis.logger';
+import { ConsoleLogger } from '../app/modules/logger-module/loggers/console.logger';
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+	production: false,
+	loggers: [
+		ConsoleLogger,
+		ConsoleBisLogger
+	]
 };
 
 /*

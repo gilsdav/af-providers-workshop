@@ -1,3 +1,8 @@
+import { ConsoleBisLogger } from '../app/modules/logger-module/loggers/console-bis.logger';
+
 export const environment = {
-  production: true
+	production: true,
+	loggers: [
+		ConsoleBisLogger
+	]
 };

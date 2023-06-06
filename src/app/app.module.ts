@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomModuleModule } from './modules/custom-module/custom-module.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { USER_SERVICE } from './modules/custom-module/types/config.type';
 import { AlternativeUserService } from './services/alternative-user.service';
+import { LoggerModule } from './modules/logger-module/logger.module';
+import { environment } from '../environments/environment';
 
 @NgModule({
 	declarations: [
@@ -19,9 +20,12 @@ import { AlternativeUserService } from './services/alternative-user.service';
 			// mode: 'dark',
 			// enableGuard: true,
 			// altGuard: AlternativeGuard,
-			// userService: { provide: USER_SERVICE, useClass: AlternativeUserService }
+			// userService: AlternativeUserService
 		}),
-		NgbModule
+		NgbModule,
+		LoggerModule.forRoot({
+			// loggers: environment.loggers
+		})
 	],
 	exports: [],
 	providers: [],
