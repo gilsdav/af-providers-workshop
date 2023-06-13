@@ -6,6 +6,7 @@ import { Config, DarkLightMode, MODULE_CONFIG, USER_SERVICE } from '../../types/
 import { Observable } from 'rxjs';
 import { UserModel } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { AuthenticationLoggerService } from '../../services/authentication-logger.service';
 
 @Component({
 	selector: 'app-main',
@@ -19,12 +20,14 @@ export class MainComponent implements OnInit {
 
 	constructor(
 		@Inject(MODULE_CONFIG) private config: Config,
-		@Inject(USER_SERVICE) private userService: UserService) {
+		@Inject(USER_SERVICE) private userService: UserService,
+		private authLoggerService: AuthenticationLoggerService) {
 		this.mode = this.config.mode!;
 	}
 
 	ngOnInit(): void {
 		this.user$ = this.userService.getUser();
+		this.authLoggerService.logAuthentication();
 	}
 
 }

@@ -7,9 +7,9 @@ import { CustomModuleModule } from './modules/custom-module/custom-module.module
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlternativeUserService } from './services/alternative-user.service';
 import { LoggerModule } from './modules/logger-module/logger.module';
-import { environment } from '../environments/environment';
 import { DynamicComponentModule } from './modules/dynamic-component-module/dynamic-component.module';
 import { TestComponent } from './components/test/test.component';
+import { AltAuthService } from './services/alternative-auth.service';
 
 @NgModule({
 	declarations: [
@@ -23,7 +23,9 @@ import { TestComponent } from './components/test/test.component';
 			// mode: 'dark',
 			// enableGuard: true,
 			// altGuard: AlternativeGuard,
-			// userService: AlternativeUserService
+			userService: AlternativeUserService,
+			authService: AltAuthService
+
 		}),
 		NgbModule,
 		LoggerModule.forRoot({

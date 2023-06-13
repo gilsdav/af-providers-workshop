@@ -6,7 +6,7 @@ import { UserServiceAbstract } from '../modules/custom-module/services/user.serv
 @Injectable()
 export class AlternativeUserService extends UserServiceAbstract {
 
-	public getUser(): Observable<UserModel> {
+	public override getUser(): Observable<UserModel> {
 		return of(new UserModel({
 			firstName: 'John',
 			lastName: 'Lenine'
