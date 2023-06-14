@@ -25,8 +25,7 @@ import { AlternativeGuard } from './guards/alternative-guard.guard';
 			// mode: 'dark',
 			// enableGuard: true,
 			// altGuard: AlternativeGuard,
-			userService: AlternativeUserService,
-			authService: AltAuthService
+			// userService: AlternativeUserService
 
 		}),
 		NgbModule,

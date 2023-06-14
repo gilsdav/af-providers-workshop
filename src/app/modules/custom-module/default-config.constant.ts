@@ -7,6 +7,5 @@ export const defaultConfig: Config = {
 	mode: 'light',
 	enableGuard: false,
 	altGuard: DefaultGuard,
-	userService: UserService,
-	authService: AuthService
+	userService: UserService
 }

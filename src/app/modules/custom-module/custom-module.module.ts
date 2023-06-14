@@ -35,14 +35,10 @@ export class CustomModuleModule {
 			providers: [
 				{ provide: MODULE_CONFIG, useValue: computedConfig },
 				{ provide: DefaultGuard, useClass: computedConfig.altGuard },
-				{ provide: USER_SERVICE, useClass: computedConfig.userService },
-				{ provide: AuthService, useClass: computedConfig.authService },
-				{ provide: AuthenticationLoggerService, deps: [AuthService], useFactory: authLoggerFactory }
+				{ provide: USER_SERVICE, useClass: computedConfig.userService }
 			]
 		}
 
 		return module;
 	}
 }
-
-const authLoggerFactory = (authService: AuthAbstractService) => new AuthenticationLoggerService(authService);
