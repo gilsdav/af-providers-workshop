@@ -20,14 +20,12 @@ export class MainComponent implements OnInit {
 
 	constructor(
 		@Inject(MODULE_CONFIG) private config: Config,
-		@Inject(USER_SERVICE) private userService: UserService,
-		private authLoggerService: AuthenticationLoggerService) {
+		private userService: UserService) {
 		this.mode = this.config.mode!;
 	}
 
 	ngOnInit(): void {
 		this.user$ = this.userService.getUser();
-		this.authLoggerService.logAuthentication();
 	}
 
 }

@@ -2,12 +2,11 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { customModuleContainers } from './containers';
 import { CustomModuleRoutingModule } from './custom-module-routing.module';
-import { Config, MODULE_CONFIG, USER_SERVICE } from './types/config.type';
+import { Config, MODULE_CONFIG } from './types/config.type';
 import { defaultConfig } from './default-config.constant';
 import { DefaultGuard } from './guards/default-guard.guard';
 import { AuthenticationLoggerService } from './services/authentication-logger.service';
-import { AuthAbstractService } from './services/auth.abstract';
-import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 
 
@@ -20,7 +19,8 @@ import { AuthService } from './services/auth.service';
 		CustomModuleRoutingModule,
 	],
 	providers: [
-		AuthenticationLoggerService
+		AuthenticationLoggerService,
+		UserService
 	]
 })
 export class CustomModuleModule {
@@ -34,10 +34,7 @@ export class CustomModuleModule {
 			ngModule: CustomModuleModule,
 			providers: [
 				{ provide: MODULE_CONFIG, useValue: computedConfig },
-				{ provide: DefaultGuard, useClass: computedConfig.altGuard },
-				{ provide: USER_SERVICE, useClass: computedConfig.userService },
-				{ provide: AuthService, useClass: computedConfig.authService },
-				{ provide: AuthenticationLoggerService, deps: [AuthService], useFactory: authLoggerFactory }
+				{ provide: DefaultGuard, useClass: computedConfig.altGuard }
 			]
 		}
 
@@ -45,4 +42,3 @@ export class CustomModuleModule {
 	}
 }
 
-const authLoggerFactory = (authService: AuthAbstractService) => new AuthenticationLoggerService(authService);
